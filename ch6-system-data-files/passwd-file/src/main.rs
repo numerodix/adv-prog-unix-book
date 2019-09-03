@@ -15,7 +15,7 @@ struct PasswdEntry {
 }
 
 
-fn get_cstr(ptr: *mut libc::c_char) -> String {
+fn get_cstr(ptr: *const libc::c_char) -> String {
     let cstr = unsafe { CStr::from_ptr(ptr) };
     cstr.to_str().unwrap().to_string()
 }
